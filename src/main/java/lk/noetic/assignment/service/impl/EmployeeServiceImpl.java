@@ -74,6 +74,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee employee=new Employee();
         BeanUtils.copyProperties(employeeDTO,employee);
+
+        //department
+        DepartmentDTO departmentDTO = employeeDTO.getDepartmentDTO();
+        Department department=new Department();
+        BeanUtils.copyProperties(departmentDTO,department);
+
+        employee.setDepartment(department);
+
         employeeRepository.save(employee);
 
     }
